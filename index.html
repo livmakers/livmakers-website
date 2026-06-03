@@ -275,9 +275,12 @@ body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg
 .co .role{font-family:var(--acc);font-style:italic;color:var(--accent-deep);font-size:1rem;margin-top:.25rem;letter-spacing:.04em}
 .co .desc{color:var(--ink-soft);font-size:.95rem;margin-top:.8rem;flex:1}
 .co .foot{display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line-2)}
-.co .weblink{display:inline-flex;align-self:flex-start;width:fit-content;white-space:nowrap;flex:none;align-items:center;gap:.35em;margin-top:.95rem;font-family:var(--acc);font-style:italic;font-size:1rem;color:var(--accent-deep);letter-spacing:.03em;transition:gap .3s,color .3s;position:relative;z-index:3}
-.co .weblink:hover{gap:.7em;color:var(--accent)}
+.co .weblink{display:inline-flex;align-self:flex-start;width:fit-content;white-space:nowrap;flex:none;align-items:center;gap:.35em;margin-top:.95rem;font-family:var(--acc);font-style:italic;font-size:1rem;color:var(--accent-deep);letter-spacing:.03em;transition:gap .3s,color .3s;pointer-events:none}
+.co:hover .weblink{gap:.7em;color:var(--accent)}
 .co.feat .weblink{color:#fff}
+.co .cardlink{position:absolute;inset:0;z-index:6;border-radius:inherit;-webkit-tap-highlight-color:transparent}
+.co:has(.cardlink){cursor:pointer}
+.co:has(.cardlink):hover{transform:translateY(-8px)}
 .co .tag{font-size:.74rem;letter-spacing:.08em;color:var(--accent-deep);background:var(--accent-soft);padding:.25em .8em;border-radius:999px;font-weight:500}
 .co .yr{font-family:var(--acc);font-style:italic;color:var(--muted);font-size:.95rem;font-variant-numeric:tabular-nums}
 .co.feat .pho::after{background:linear-gradient(180deg,rgba(17,119,78,.04) 45%,rgba(14,63,43,.38))}
@@ -642,7 +645,7 @@ body.nav-open .mpanel{transform:none;visibility:visible}
 
         <article class="co feat wide">
           <div class="pho"><span class="ix">01</span><img loading="lazy" width="1400" height="788" src="img/m-produce.webp" alt="株式会社三河屋 東海のスーパーマーケットの新鮮な青果売り場" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;01&lt;/div&gt;&lt;div class=nm&gt;三河屋&lt;span class=en&gt;Retail&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>株式会社三河屋</h3><div class="role">東海のスーパー</div><p class="desc">13店舗で東海の食卓を毎日支える、グループの小売基幹。地域に根ざした商売を磨き続けます。</p><div class="foot"><span class="tag">Retail</span><span class="yr">小売</span></div><a class="weblink" href="https://www.biglive.jp" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>株式会社三河屋</h3><div class="role">東海のスーパー</div><p class="desc">13店舗で東海の食卓を毎日支える、グループの小売基幹。地域に根ざした商売を磨き続けます。</p><div class="foot"><span class="tag">Retail</span><span class="yr">小売</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://www.biglive.jp" target="_blank" rel="noopener" aria-label="株式会社三河屋 公式サイトを開く"></a>
         </article>
 
         <article class="co">
@@ -652,17 +655,17 @@ body.nav-open .mpanel{transform:none;visibility:visible}
 
         <article class="co feat">
           <div class="pho"><span class="ix">03</span><img loading="lazy" width="1400" height="933" src="img/m-curry.webp" alt="ロークスカレー本舗 昭和2年創業のカレーと香辛料" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;03&lt;/div&gt;&lt;div class=nm&gt;ロークスカレー本舗&lt;span class=en&gt;Since 1927&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>株式会社ロークスカレー本舗</h3><div class="role">カレー製造</div><p class="desc">昭和2年（1927）創業。一皿に宿る製造の叡智を受け継ぎ、変わらぬ味を未来へつなぎます。</p><div class="foot"><span class="tag">Since 1927</span><span class="yr">製造</span></div><a class="weblink" href="https://rouxcurryhonpo.com" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>株式会社ロークスカレー本舗</h3><div class="role">カレー製造</div><p class="desc">昭和2年（1927）創業。一皿に宿る製造の叡智を受け継ぎ、変わらぬ味を未来へつなぎます。</p><div class="foot"><span class="tag">Since 1927</span><span class="yr">製造</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://rouxcurryhonpo.com" target="_blank" rel="noopener" aria-label="株式会社ロークスカレー本舗 公式サイトを開く"></a>
         </article>
 
         <article class="co">
           <div class="pho"><span class="ix">04</span><img loading="lazy" width="1400" height="933" src="img/co-artnap.webp" alt="アートナップ株式会社 紙コップ・食品容器の脱プラ製品" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;04&lt;/div&gt;&lt;div class=nm&gt;アートナップ&lt;span class=en&gt;Paper&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>アートナップ株式会社</h3><div class="role">紙コップ・食品容器</div><p class="desc">プラから紙へ。脱プラを進める紙コップ・食品容器で、地球にやさしいものづくりを。2024年承継。</p><div class="foot"><span class="tag">Paper</span><span class="yr">2024</span></div><a class="weblink" href="https://artnap.co.jp" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>アートナップ株式会社</h3><div class="role">紙コップ・食品容器</div><p class="desc">プラから紙へ。脱プラを進める紙コップ・食品容器で、地球にやさしいものづくりを。2024年承継。</p><div class="foot"><span class="tag">Paper</span><span class="yr">2024</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://artnap.co.jp" target="_blank" rel="noopener" aria-label="アートナップ株式会社 公式サイトを開く"></a>
         </article>
 
         <article class="co">
           <div class="pho"><span class="ix">05</span><img loading="lazy" width="1400" height="933" src="img/co-tanaka.webp" alt="株式会社タナカ産業 FSC認証の紙資材" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;05&lt;/div&gt;&lt;div class=nm&gt;タナカ産業&lt;span class=en&gt;Packaging&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>株式会社タナカ産業</h3><div class="role">紙資材・FSC認証</div><p class="desc">FSC認証の紙資材で、ブランドの世界観を支える。環境と表現を両立する、紙のパートナー。2025年承継。</p><div class="foot"><span class="tag">Packaging</span><span class="yr">2025</span></div><a class="weblink" href="https://www.tnk-tanaka.co.jp" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>株式会社タナカ産業</h3><div class="role">紙資材・FSC認証</div><p class="desc">FSC認証の紙資材で、ブランドの世界観を支える。環境と表現を両立する、紙のパートナー。2025年承継。</p><div class="foot"><span class="tag">Packaging</span><span class="yr">2025</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://www.tnk-tanaka.co.jp" target="_blank" rel="noopener" aria-label="株式会社タナカ産業 公式サイトを開く"></a>
         </article>
 
         <article class="co">
@@ -677,12 +680,12 @@ body.nav-open .mpanel{transform:none;visibility:visible}
 
         <article class="co">
           <div class="pho"><span class="ix">08</span><img loading="lazy" width="1400" height="933" src="img/co-arounds.webp" alt="株式会社アラウンズ EC運用・サイトマーケティング" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;08&lt;/div&gt;&lt;div class=nm&gt;アラウンズ&lt;span class=en&gt;E-Commerce&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>株式会社アラウンズ</h3><div class="role">EC運用・サイトマーケ</div><p class="desc">EC運用とサイトマーケティングの専門家。グループ各社の販売を、デジタルの力で加速させます。2026年。</p><div class="foot"><span class="tag">E-Commerce</span><span class="yr">2026</span></div><a class="weblink" href="https://www.arounds.co.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>株式会社アラウンズ</h3><div class="role">EC運用・サイトマーケ</div><p class="desc">EC運用とサイトマーケティングの専門家。グループ各社の販売を、デジタルの力で加速させます。2026年。</p><div class="foot"><span class="tag">E-Commerce</span><span class="yr">2026</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://www.arounds.co.jp/" target="_blank" rel="noopener" aria-label="株式会社アラウンズ 公式サイトを開く"></a>
         </article>
 
         <article class="co">
           <div class="pho"><span class="ix">09</span><img loading="lazy" width="1400" height="933" src="img/co-yamada.webp" alt="株式会社ヤマダ 創業60年超の機能性肌着" onerror="this.outerHTML='&lt;div class=ph-skel&gt;&lt;div class=sk&gt;&lt;div class=no&gt;09&lt;/div&gt;&lt;div class=nm&gt;ヤマダ&lt;span class=en&gt;Apparel&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'"></div>
-          <div class="inner"><h3>株式会社ヤマダ</h3><div class="role">肌着メーカー</div><p class="desc">創業60年超。肌に寄り添う機能性肌着づくりの技を受け継ぎ、これからの暮らしへ届けます。2026年。</p><div class="foot"><span class="tag">Apparel</span><span class="yr">2026</span></div><a class="weblink" href="https://www.web-yamada.co.jp/" target="_blank" rel="noopener">公式サイト ↗</a></div>
+          <div class="inner"><h3>株式会社ヤマダ</h3><div class="role">肌着メーカー</div><p class="desc">創業60年超。肌に寄り添う機能性肌着づくりの技を受け継ぎ、これからの暮らしへ届けます。2026年。</p><div class="foot"><span class="tag">Apparel</span><span class="yr">2026</span></div><span class="weblink">公式サイト ↗</span></div><a class="cardlink" href="https://www.web-yamada.co.jp/" target="_blank" rel="noopener" aria-label="株式会社ヤマダ 公式サイトを開く"></a>
         </article>
 
         <article class="co feat">
