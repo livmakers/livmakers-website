@@ -433,6 +433,159 @@ body.nav-open .mpanel{transform:none;visibility:visible}
   .marq .track{animation:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ====== POLISH OVERLAY START ====== */
+/* ============================================================
+   DESIGN DIRECTOR — FINAL POLISH OVERLAY (append before the end of the stylesheet)
+   原研哉(余白・静けさ) × ヴィネリ/スケール(規律) × アイブ・ラムス(素材)
+   構造・本文・リンク・フォーム・色域・フォントは不変。
+   声を一段静め、英字を規律化し、面の精度を上げる。温かさは維持。
+   ============================================================ */
+:root{
+  /* 角丸トークン（器の表情を3段に統一） */
+  --r-sm:12px; --r-md:16px; --r-lg:20px;
+  /* 統一イージング */
+  --ease:cubic-bezier(.2,.7,.2,1);
+  /* 0.5px志向の静かなヘアライン */
+  --line-2:rgba(30,44,37,.075);
+  --line:rgba(26,160,106,.16);
+  /* 多層シャドウ（接地＋中間＋拡散＋極薄の緑）。光源は上方固定 */
+  --sh-1:0 1px 1.5px rgba(20,40,30,.05),
+         0 8px 18px -12px rgba(20,40,30,.16),
+         0 26px 46px -34px rgba(20,40,30,.26);
+  --sh-2:0 .5px 0 rgba(255,255,255,.6) inset,
+         0 1px 2px rgba(20,40,30,.05),
+         0 12px 24px -16px rgba(20,40,30,.18),
+         0 38px 62px -46px rgba(17,119,78,.28);
+  --sh-3:0 1px 2px rgba(20,40,30,.06),
+         0 16px 32px -16px rgba(17,119,78,.16),
+         0 54px 92px -52px rgba(17,119,78,.34);
+}
+
+/* ---- 引き算：必然のない装飾を沈める／消す（原研哉の「間」） ---- */
+.ph-skel::before{opacity:.5}                       /* 網点格子を静かに */
+.frame::after{opacity:.5}                            /* 画像の緑被せを薄く */
+.hero .blob{opacity:.22;filter:blur(64px)}          /* 呼吸する光・間を埋めない */
+.vc::after{opacity:.55}                              /* カード隅の円光を控える */
+.vc:hover::after{transform:scale(1.35)}
+.strat .glow{opacity:.7} .strat .glow2{opacity:.72} /* 二重円光を鎮静 */
+.uline::after{opacity:.6;height:.34em}               /* 手描き線を一段細く静かに */
+.co .pho::after{opacity:.85}
+.philo .lead .l::before{width:.55rem;height:.55rem;top:.92em;opacity:.9} /* リードの●を小さく */
+.nums .stat+.stat::before{background:var(--line-2)}  /* 数値間の縦罫をヘアライン化 */
+
+/* ---- ヘアライン：罫を極細・静かに（device-pixel志向） ---- */
+.co .foot,.nums,.msg,.marq,.f-top,.f-bot,.contact form,
+.place,.fld input,.fld textarea,.hero-art .badge,
+.msg .portrait .sig,.vc,.co{border-color:var(--line-2)}
+header.scr{box-shadow:0 .5px 0 var(--line-2),0 14px 40px -34px rgba(20,40,30,.42)}
+.chap .rule{background:linear-gradient(90deg,var(--line),transparent);height:1px}
+
+/* ---- 英字ラベルの規律（ヴィネリ）：大文字・統一トラッキング・等幅数字 ---- */
+.chap .lab{
+  font-family:var(--acc);font-style:normal;font-weight:600;
+  font-size:.86rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted);opacity:.9;font-variant-numeric:tabular-nums;
+}
+.ey{letter-spacing:.2em;font-size:1.04rem;gap:1em}
+.ey::before{width:2.1rem;opacity:.8}
+.f-col h5{letter-spacing:.2em;text-transform:uppercase;font-size:.84rem}
+.menu a.lk{letter-spacing:.14em}
+.menu a.lk .num{font-variant-numeric:tabular-nums;letter-spacing:.05em;opacity:.9}
+.sec-h .en{letter-spacing:.16em;color:var(--muted)}
+
+/* ---- tabular-nums の徹底（桁の縦ぞろえで精度感） ---- */
+.hero .issue,.hero .issue b,.hero-art .badge .big,
+.marq .it,.tl .yr,.co .yr,.co .ix,.city .lab .tag,
+.place .v,.tel-big,.nums .stat .n,.craft .meta .m .n,
+.pin .barrow .pct,.f-col p{font-variant-numeric:tabular-nums}
+
+/* ---- 和文大見出し：palt明示＋微小字詰め（親しみを消さぬ抑制） ---- */
+.sec-h,.hero h1,.msg .body .dropquote,.philo .lead,
+.craft .body .lead,.philo-art .pull .q,.strat .pull{
+  font-feature-settings:"palt" 1;
+}
+.sec-h{letter-spacing:-.006em;line-height:1.26}
+.hero h1{letter-spacing:.004em;line-height:1.11}
+
+/* ---- 中間サイズの階層を立てる（団子の解消・ヴィネリ対比） ---- */
+.philo .lead{letter-spacing:.012em;line-height:1.66}
+.craft .body .lead{letter-spacing:.012em;line-height:1.6}
+.msg .body .dropquote{letter-spacing:.012em;line-height:1.56}
+.co .role,.place .k,.frame .cap{letter-spacing:.04em}
+
+/* ---- チャプター番号を構造の主役に（Scher・軽さ=transparent維持） ---- */
+.chap .no{-webkit-text-stroke-width:1.3px;letter-spacing:-.01em}
+
+/* ---- 角丸の統一（3段へ収束） ---- */
+.vc,.co,.contact form,.city,.hero-art .main,
+.hero-art .main img,.hero-art .main .ph-skel{border-radius:var(--r-lg)}
+.frame,.place,.hero-art .chip{border-radius:var(--r-md)}
+.frame.matte>img,.fld input,.fld textarea,
+.hero-art .badge,.msg .portrait .sig,.brand .dot{border-radius:var(--r-sm)}
+
+/* ---- 影の多層化（紙の上に置かれた物体としての接地） ---- */
+.co{box-shadow:var(--sh-2)}
+.co:hover{box-shadow:var(--sh-3);border-color:var(--accent-soft)}
+.vc{box-shadow:var(--sh-1)}
+.vc:hover{box-shadow:var(--sh-3)}
+.frame{box-shadow:var(--sh-2)}
+.place{box-shadow:0 1px 2px rgba(20,40,30,.04),0 20px 42px -38px rgba(20,40,30,.30)}
+.hero-art .badge,.msg .portrait .sig{box-shadow:var(--sh-1)}
+
+/* ---- 画像フレームの素材表現：内側1px白ライト＋極薄縁（マット質感） ----
+   .frame は cardlink を持たない＝リンク機構に非干渉。pointer-events:none・低z。 */
+.frame::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10),
+             inset 0 1px 0 rgba(255,255,255,.18);
+}
+/* .co .pho の内側ライト。cardlink(z9)より十分下のz1で覆わない。 */
+.co .pho::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* ---- イージング統一＋hover移動量の抑制（上品な必然） ---- */
+.co,.vc,.btn,.menu a.lk::after,.frame img,.co .pho img,
+.cycle .st,.f-col a,.fld input,.fld textarea,
+.hero .blob{transition-timing-function:var(--ease)}
+.vc:hover{transform:translateY(-6px)}
+.frame:hover img{transform:scale(1.03)}
+.co:hover .pho img{transform:scale(1.04)}
+
+/* ---- ボタン：派手なバブルを上品に（scale2.4→1.9・イージング統一） ---- */
+.btn::before{transition:transform .5s var(--ease)}
+.btn:hover::before{transform:scale(1.9)}
+
+/* ---- モーション抑制：marquee を一段静かに、端を溶かす ---- */
+.marq .track{animation-duration:78s}
+.marq{
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marq .it .dot{opacity:.7}
+
+/* ---- 彩度の鎮静（装飾緑を一段静かに。warmアンバーは残す） ---- */
+.co .tag{background:rgba(207,235,217,.72)}
+
+/* ---- 補助サインのトーンダウン（Scroll／横スクロール誘導） ---- */
+.scrollcue{opacity:.7;letter-spacing:.22em;font-size:.8rem}
+.pin-hint{opacity:.78}
+
+/* ---- セクション見出しの天地リズム（編集グリッドの規律） ---- */
+.chap{margin-bottom:3rem}
+.ey+.sec-h{margin-top:.7rem}
+
+/* ---- 物理ピクセルでの極細罫（高解像度ディスプレイ） ---- */
+@media(min-resolution:2dppx){
+  .co .foot{border-top-width:.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  .marq .track{animation:none!important}
+}
+/* ====== POLISH OVERLAY END ====== */
 </style>
 </head>
 <body class="loaded">
